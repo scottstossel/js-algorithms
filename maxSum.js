@@ -1,3 +1,6 @@
+//function that accepts array of integers and a number
+//function should calculate the max sum of n consecutive elements in the array
+
 function maxSubarraySum(arr, num){
   let maxSum = 0;
   let tempSum = 0;
@@ -13,4 +16,4 @@ function maxSubarraySum(arr, num){
   return maxSum;
 }
 
-console.log(maxSubarraySum([2,6,9,2,1,8,5,6,3],3));
+console.log(maxSubarraySum([2,6,9,2,1,8,5,6,3],4));
