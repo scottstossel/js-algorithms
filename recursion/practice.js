@@ -27,4 +27,27 @@ function recursiveRange(num) {
   return num + recursiveRange(num - 1);
 }
 
-console.log(recursiveRange(10));
+// console.log(recursiveRange(10));
+
+//accept a number and return nth number 
+//in the Fibonacci sequence
+//1,1,2,3,5,8,13,21,34
+//nth num = (n - 1) + (n - 2)
+
+function fib(num) {
+  if (num <= 2) {
+    return 1;
+  }
+  return fib(num-1) + fib(num-2);
+}
+
+// console.log(fib(20));
+
+//function accepts str and returns it in reverse
+
+function reverse(str) {
+  if (str.length === 1) return str;
+  return reverse(str.slice(1)) + str[0];
+}
+
+console.log(reverse(`popcorn`));
