@@ -94,13 +94,49 @@ class SinglyLinkedList{
     this.length++;
     return true;
   }
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+    var prevNode = this.get(index - 1);
+    var removed = prevNode.next;
+    prevNode.next = removed.next;
+    this.length--;
+    return removed;
+  }
+  print() {
+    var arr = [];
+    var current = this.head;
+    while (current) {
+      arr.push(current.val);
+      current = current.next;
+    }
+    console.log(arr);
+  }
+  reverse() {
+    var node = this.head;
+    this.head = this.tail;
+    this.tail = node;
+    var next;
+    var prev = null;
+    for (let i = 0; i < this.length; i++) {
+      next = node.next;
+      node.next = prev;
+      prev = node;
+      node = next;
+    }
+    return this;
+  }
 }
+var list = new SinglyLinkedList();
 
-
-var list = new SinglyLinkedList()
-list.push("HELLO") 
-list.push("GOODBYE") 
-list.push("!")
+list.push("HELLO")
+list.push("THERE")
+list.push("GENERAL")
+list.push("KENOBI")
+// list.remove(2);
+// list.remove(0);
+list.reverse();
 
 // console.log(list);
 
@@ -108,8 +144,8 @@ list.push("!")
 // list.unshift("Well");
 // console.log(list);
 // list.set(1, "!!!");
-list.insert(2, "yay")
+// list.insert(2, "yay")
 
 console.log(list);
-console.log(list.get(2));
+console.log(list.get(1));
 
