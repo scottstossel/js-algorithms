@@ -92,13 +92,30 @@ class HashTable {
     this.keyMap[index].push([key, val]);
     return index;
   }
+
+  get(key) {
+    let index = this._hash(key);
+    if (this.keyMap[index]) {
+      for (let i = 0; i < this.keyMap[index].length; i++) {
+        if (this.keyMap[index][i][0] === key) {
+          return this.keyMap[index][i][1];
+        }
+      }
+    }
+    return undefined;
+  }
 }
 
-let ht = new HashTable();
+let ht = new HashTable(17);
 
 console.log(ht.set("hello world", "goodbye!!"));
 console.log(ht.set("dogs", "are cool"));
 console.log(ht.set("pizza", "yum"));
 console.log(ht.set("cats", "purrrr"));
 console.log(ht.set("but", "wait"));
-console.log(ht);
+console.log(ht.set("hello", "there"));
+console.log(ht.get("pizza"));
+console.log(ht.get("but"));
+console.log(ht.get("help"));
+console.log(ht.set("are we done", "yes"));
+console.log(ht.get("are we done"));
