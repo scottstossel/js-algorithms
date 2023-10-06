@@ -104,6 +104,30 @@ class HashTable {
     }
     return undefined;
   }
+  values() {
+    let valuesArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!valuesArr.includes(this.keyMap[i][j][1]))
+          valuesArr.push(this.keyMap[i][j][1]);
+        }
+      }
+    }
+    return valuesArr;
+  }
+  keys() {
+    let keysArr = [];
+    for (let i = 0; i < this.keyMap.length; i++) {
+      if (this.keyMap[i]) {
+        for (let j = 0; j < this.keyMap[i].length; j++) {
+          if (!keysArr.includes(this.keyMap[i][j][0]))
+          keysArr.push(this.keyMap[i][j][0]);
+        }
+      }
+    }
+    return keysArr;
+  }
 }
 
 let ht = new HashTable(17);
@@ -114,8 +138,15 @@ console.log(ht.set("pizza", "yum"));
 console.log(ht.set("cats", "purrrr"));
 console.log(ht.set("but", "wait"));
 console.log(ht.set("hello", "there"));
-console.log(ht.get("pizza"));
-console.log(ht.get("but"));
-console.log(ht.get("help"));
+// console.log(ht.get("pizza"));
+// console.log(ht.get("but"));
+// console.log(ht.get("help"));
 console.log(ht.set("are we done", "yes"));
-console.log(ht.get("are we done"));
+ht.set('bruh', 'skull emoji');
+ht.set('no', 'you');
+ht.set('node', 'version');
+ht.set('react', 'JavaScript');
+ht.set('react', 'TypeScript');
+// console.log(ht.get("are we done"));
+
+console.log(ht.values());
