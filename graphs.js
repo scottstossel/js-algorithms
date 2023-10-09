@@ -49,13 +49,35 @@ g.addVertex('SF');
 g.addVertex('Dallas');
 g.addVertex('Houston');
 g.addVertex('Miami');
+g.addVertex('Bogota');
+g.addVertex('Havana');
+g.addVertex('Managua');
+g.addVertex('Madrid');
 g.addEdge('Tokyo', 'SF');
 g.addEdge('Dallas', 'Tokyo');
 g.addEdge('Dallas', 'Miami');
+g.addEdge('Miami', 'Bogota');
+g.addEdge('Havana', 'Miami');
+g.addEdge('Managua', 'Miami');
+g.addEdge('Madrid', 'Miami');
 g.addEdge('Dallas', 'Houston');
 g.addEdge('Zaragoza', 'Palma');
 
-console.log(g);
+// console.log(g);
 
-g.removeVertex('Tokyo');
-console.log(g);
+let graph = new Graph();
+
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addVertex("D");
+graph.addVertex("E");
+graph.addVertex("F");
+
+graph.addEdge("A","B");
+graph.addEdge("A","C");
+graph.addEdge("B","D");
+graph.addEdge("C","E");
+graph.addEdge("D","E");
+graph.addEdge("D","F");
+graph.addEdge("E","F");
