@@ -3,7 +3,9 @@
 
 //pseudocode: each time we look to visit a new node, we pick the node with the smallest known distance to visit first
 //once we've moved, we look at each of its neighbors
-//for each neighboringnode 
+//for each neighboring node, we calculate the distance by summing the total edges that lead to 
+//the node we're checking from the starting node
+//if the new total distance to a node is less than the previous total, we store the new distance
 
 class WeightedGraph {
   constructor() {
@@ -29,3 +31,28 @@ graph.addEdge("A", "C", 5);
 graph.addEdge("B", "C", 7);
 
 console.log(graph.adjacencyList);
+
+class PriorityQueue {
+  constructor() {
+    this.values = [];
+  }
+  enqueue(val, priority) {
+    this.values.push({val, priority});
+    this.sort();
+  }
+  dequeue() {
+    return this.values.shift()
+  }
+  sort() {
+    this.values.sort((a, b) => a.priority - b.priority);
+  }
+}
+
+var q = new PriorityQueue();
+
+q.enqueue("B", 3);
+q.enqueue("C", 5);
+q.enqueue("D", 2);
+q.enqueue("Q", 20);
+
+console.log(q.values);
